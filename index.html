@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Excel Mastery: Logic & Application</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+            color: #1e293b;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .excel-header {
+            background: linear-gradient(135deg, #15803d 0%, #166534 100%);
+        }
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            width: 100%; /* Dipaksa full width */
+        }
+        .card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-4px);
+        }
+        .code-block {
+            background-color: #0f172a;
+            color: #4ade80;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            border-left: 6px solid #22c55e;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+        }
+        .concept-box {
+            background-color: #f8fafc;
+            border-left: 5px solid #64748b;
+            padding: 1.25rem;
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+        /* Typography Adjustments */
+        h1 { letter-spacing: -0.025em; }
+        h2 { letter-spacing: -0.025em; }
+        section { scroll-margin-top: 4rem; }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="excel-header text-white py-24 px-6 mb-16 shadow-xl">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div class="lg:w-2/3">
+                <div class="inline-flex items-center gap-3 bg-white/20 backdrop-blur px-4 py-2 rounded-full text-sm font-bold mb-6 border border-white/30 tracking-wide uppercase">
+                    <i class="fas fa-chart-line"></i> Data Analytics Training
+                </div>
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">Excel Formula <br><span class="text-green-300">Logic & Application</span></h1>
+                <p class="text-green-50 text-xl md:text-2xl max-w-3xl leading-relaxed font-light">
+                    Mengubah pola pikir dari "menghafal rumus" menjadi <strong>"memahami logika"</strong>. 
+                    <br class="hidden md:block">Fokus pada efisiensi kerja melalui teknik cleaning data cerdas.
+                </p>
+            </div>
+            <div class="lg:w-1/3 bg-white/10 p-8 rounded-2xl backdrop-blur-md border border-white/20 shadow-2xl w-full">
+                <div class="text-base font-bold opacity-90 mb-4 tracking-wider text-green-200">GOAL HARI INI:</div>
+                <ul class="space-y-4 text-lg font-medium">
+                    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-green-400 text-xl"></i> Standardisasi Data Teks</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-green-400 text-xl"></i> Logika Ekstraksi Dinamis</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-green-400 text-xl"></i> Visualisasi In-Cell</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 space-y-24 pb-32">
+
+        <!-- MODUL 1: TEXT MANIPULATION -->
+        <section>
+            <div class="flex items-center gap-6 mb-10 border-b-2 border-slate-200 pb-6">
+                <div class="bg-blue-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-3xl font-bold shadow-lg flex-shrink-0">1</div>
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-2">Manipulasi & Pembersihan Teks</h2>
+                    <p class="text-slate-500 text-lg">Membersihkan data mentah (Raw Data) sebelum dianalisis.</p>
+                </div>
+            </div>
+
+            <div class="space-y-8">
+                
+                <!-- BLOK 1: BASIC CLEANING & CASE -->
+                <div class="card p-8 border-t-8 border-blue-500">
+                    <h3 class="text-2xl font-bold text-blue-700 mb-6 flex items-center gap-3">
+                        <i class="fas fa-broom"></i> Pembersihan Dasar (Cleaning & Case)
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <!-- TRIM -->
+                        <div class="pb-4 border-b border-slate-100">
+                            <h4 class="text-xl font-bold text-slate-700 mb-3">TRIM <span class="text-sm font-mono bg-slate-100 text-slate-500 px-2 py-1 rounded ml-3">Syntax: =TRIM(text)</span></h4>
+                            <div class="code-block">
+                                <span>=TRIM(A2)</span>
+                            </div>
+                            <div class="concept-box">
+                                <strong class="text-slate-700 block text-sm uppercase tracking-wide mb-2 font-bold border-b border-slate-300 pb-1">Fungsi & Logika:</strong>
+                                Menghilangkan "spasi hantu" yang mengganggu (spasi di awal, akhir, dan spasi ganda di tengah).
+                            </div>
+                        </div>
+
+                        <!-- PROPER / UPPER / LOWER -->
+                        <div>
+                            <h4 class="text-xl font-bold text-slate-700 mb-3">PROPER / UPPER / LOWER <span class="text-sm font-mono bg-slate-100 text-slate-500 px-2 py-1 rounded ml-3">Contoh: =UPPER(text)</span></h4>
+                            <div class="code-block">
+                                <span>=PROPER(A2)</span>
+                            </div>
+                            <p class="text-base text-slate-600 mt-3 leading-relaxed">
+                                Digunakan untuk memastikan konsistensi kapitalisasi data nama atau deskripsi.
+                            </p>
+                            <ul class="text-base list-disc ml-5 mt-3 text-slate-600 space-y-1">
+                                <li>**PROPER:** Huruf Besar Di Awal Kata (Title Case).</li>
+                                <li>**UPPER:** HURUF BESAR SEMUA.</li>
+                                <li>**LOWER:** huruf kecil semua.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BLOK 2: THE CLASSICS (Static Cut: LEFT, RIGHT, MID) -->
+                <div class="card p-8 border-t-8 border-yellow-500">
+                    <h3 class="text-2xl font-bold text-yellow-700 mb-6 flex items-center gap-3">
+                        <i class="fas fa-cut"></i> The Classics (Potong Statis)
+                    </h3>
+
+                    <div class="space-y-6">
+                        <!-- LEFT / RIGHT -->
+                        <div class="pb-4 border-b border-slate-100">
+                            <h4 class="text-xl font-bold text-slate-700 mb-3">LEFT / RIGHT</h4>
+                            <div class="concept-box bg-yellow-50 border-yellow-300 text-slate-700 mb-4">
+                                <strong class="block text-sm uppercase text-yellow-800 mb-2 font-bold">Logika Statis:</strong>
+                                Hanya mengambil sejumlah X karakter dari kiri atau kanan. Hanya aman jika data yang diambil memiliki panjang yang **konsisten**.
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-slate-100 p-3 rounded-lg">
+                                    <div class="code-block py-2 mb-2">
+                                        <span>=LEFT(A2, 4)</span>
+                                    </div>
+                                    <p class="text-sm text-slate-600 mt-1 ml-1">Skenario: Mengambil Kode Area HP (081...) atau Tahun di awal NIK.</p>
+                                </div>
+                                <div class="bg-slate-100 p-3 rounded-lg">
+                                    <div class="code-block py-2 mb-2">
+                                        <span>=RIGHT(A2, 2)</span>
+                                    </div>
+                                    <p class="text-sm text-slate-600 mt-1 ml-1">Skenario: Mengambil Tahun Lahir di akhir NIK (YY) atau kode gudang.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- MID -->
+                        <div>
+                            <h4 class="text-xl font-bold text-slate-700 mb-3">MID <span class="text-base font-normal text-slate-400 ml-2">(Ambil Tengah)</span></h4>
+                            <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-100 mb-3">
+                                <code class="text-sm text-yellow-700 font-bold block mb-2 uppercase tracking-wide">Logika Argumen:</code>
+                                <p class="text-lg font-mono text-slate-700">=MID(<span class="bg-yellow-200 px-1 rounded">Teks</span>, <span class="bg-green-200 px-1 rounded">Mulai_Urutan</span>, <span class="bg-blue-200 px-1 rounded">Jumlah_Huruf</span>)</p>
+                            </div>
+                            <div class="code-block">
+                                <span>=MID("INV-2023-JKT", 5, 4)</span>
+                                <span class="text-gray-500 text-sm italic font-normal">// Hasil: "2023"</span>
+                            </div>
+                            <p class="text-base text-slate-600 mt-2">
+                                Wajib memberi tahu Excel **mulai dari huruf keberapa** dan **berapa huruf** yang mau diambil.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- BLOK 3: LOGIKA DINAMIS (FIND & LEFT Combination) -->
+                <div class="card p-8 border-t-8 border-indigo-500">
+                    <h3 class="text-2xl font-bold text-indigo-700 mb-6 flex items-center gap-3">
+                        <i class="fas fa-brain"></i> Logika Dinamis (FIND & LEN)
+                    </h3>
+
+                    <!-- FIND & LEFT COMBINATION -->
+                    <div>
+                        <h4 class="text-xl font-bold text-slate-700 mb-3">Dynamic Extraction (LEFT + FIND)</h4>
+                        
+                        <div class="concept-box bg-indigo-50 border-indigo-300 text-slate-700 mb-4">
+                            <strong class="block text-sm uppercase text-indigo-800 mb-2 font-bold">Logika Maut:</strong>
+                            Digunakan untuk memotong data yang panjangnya **tidak konsisten** (misal: nama orang).
+                            <br><br>
+                            FIND memberikan **posisi** karakter, dan hasil posisi ini menjadi **jumlah** karakter yang dipotong oleh LEFT.
+                        </div>
+                        
+                        <div class="bg-slate-100 p-4 rounded-lg">
+                            <div class="code-block text-sm">
+                                <span>=LEFT(A2, FIND(" ", A2) - 1)</span>
+                                <span class="text-gray-500 text-sm italic font-normal">// Hasil: Nama Depan</span>
+                            </div>
+                            <p class="text-sm text-slate-600 mt-2">
+                                **Penjelasan:** Jika spasi ditemukan di urutan ke-5, berarti nama depan adalah 4 karakter. Rumus ini akan selalu mengambil posisi spasi dikurangi 1, sehingga selalu dinamis.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- EXCEL 365 FEATURES -->
+            <div class="mt-10 card p-8 bg-gradient-to-r from-slate-800 to-slate-900 text-white border-none shadow-2xl">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="bg-green-500 text-white text-sm font-bold px-3 py-1 rounded shadow uppercase tracking-wider">Excel 365 / 2021+</div>
+                    <h3 class="font-bold text-2xl text-green-300">Fitur Modern (Game Changers)</h3>
+                </div>
+                <div class="space-y-8">
+                    <div class="bg-white/5 p-6 rounded-xl border border-white/10">
+                        <h4 class="font-mono text-green-400 font-bold text-xl mb-2">TEXTBEFORE & TEXTAFTER</h4>
+                        <p class="text-base text-slate-300 mb-4">
+                            Pengganti kerumitan LEFT+FIND. Cukup tentukan pemisah (delimiter).
+                        </p>
+                        <div class="bg-black/30 p-4 rounded border border-white/5 grid md:grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-xs text-slate-400 mb-2 font-mono uppercase">Ambil Username:</p>
+                                <code class="font-mono text-lg text-green-300 block mb-2">=TEXTBEFORE(A2, "@")</code>
+                                <p class="text-sm text-slate-400 italic">Data: budi.santoso@gmail.com</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 mb-2 font-mono uppercase">Ambil Domain:</p>
+                                <code class="font-mono text-lg text-green-300 block mb-2">=TEXTAFTER(A2, "@")</code>
+                                <p class="text-sm text-slate-400 italic">Hasil: gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white/5 p-6 rounded-xl border border-white/10">
+                        <h4 class="font-mono text-green-400 font-bold text-xl mb-2">TEXTSPLIT</h4>
+                        <p class="text-base text-slate-300 mb-4">
+                            Memecah satu sel (misal: berisi alamat atau tag) menjadi banyak sel berbeda secara otomatis (Spill/Tumpah).
+                        </p>
+                        <div class="bg-black/30 p-4 rounded border border-white/5">
+                            <p class="text-xs text-slate-400 mb-2 font-mono uppercase">Data: Jakarta, Bandung, Surabaya</p>
+                            <code class="font-mono text-lg text-green-300 block mb-2">=TEXTSPLIT(A2, ", ")</code>
+                            <p class="text-sm text-slate-400 italic border-t border-white/10 pt-2 mt-2">-> Hasil tumpah ke 3 sel ke samping.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODUL 2: DATES -->
+        <section>
+            <div class="flex items-center gap-6 mb-10 border-b-2 border-slate-200 pb-6">
+                <div class="bg-emerald-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-3xl font-bold shadow-lg flex-shrink-0">2</div>
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-2">Logika Waktu & Tanggal</h2>
+                    <p class="text-slate-500 text-lg">Memahami bagaimana Excel menyimpan data waktu.</p>
+                </div>
+            </div>
+
+            <div class="space-y-8">
+                <!-- BLOK 1: CONCEPT -->
+                <div class="card p-8 bg-emerald-50 border-emerald-200">
+                    <h3 class="text-xl font-bold text-emerald-800 mb-4 flex items-center gap-2"><i class="far fa-lightbulb text-2xl"></i> Konsep Dasar: Tanggal Adalah Angka</h3>
+                    <div class="grid md:grid-cols-2 gap-6 items-center">
+                        <p class="text-base text-emerald-900 leading-relaxed">
+                            Di mata Excel, <strong>Tanggal adalah Angka (Serial Number)</strong> yang dimulai dari 1 Jan 1900.
+                            <br><br>
+                            <span class="block bg-white/60 p-2 rounded text-emerald-800 text-sm font-mono">1 Jan 1900 = <strong>1</strong></span>
+                        </p>
+                        <div class="bg-white p-5 rounded-xl border border-emerald-100 text-base text-slate-700 shadow-sm">
+                            <strong>Implikasi Logika:</strong><br>
+                            Kita bisa melakukan matematika tanggal.
+                            <br>
+                            <div class="bg-slate-100 p-3 mt-3 text-center font-mono border rounded-lg text-sm font-bold text-slate-600">
+                                Tgl Akhir - Tgl Awal <br>= Durasi Hari
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BLOK 2: EXTRACTION & CONSTRUCTION -->
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="card p-8">
+                        <h3 class="text-xl font-bold text-slate-700 mb-4">Ekstraksi (Pemisahan)</h3>
+                        <p class="text-base text-slate-500 mb-6">Mengambil komponen spesifik (Hari, Bulan, Tahun) dari sebuah sel tanggal.</p>
+                        <table class="w-full text-base">
+                            <tbody>
+                                <tr class="border-b border-slate-100">
+                                    <td class="py-3 font-mono text-blue-600 font-bold text-lg">DAY(sel)</td>
+                                    <td class="py-3 text-slate-600">Ambil Tgl (1-31)</td>
+                                </tr>
+                                <tr class="border-b border-slate-100">
+                                    <td class="py-3 font-mono text-blue-600 font-bold text-lg">MONTH(sel)</td>
+                                    <td class="py-3 text-slate-600">Ambil Bulan (1-12)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 font-mono text-blue-600 font-bold text-lg">YEAR(sel)</td>
+                                    <td class="py-3 text-slate-600">Ambil Tahun</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card p-8">
+                        <h3 class="text-xl font-bold text-slate-700 mb-4">Konstruksi (Gabung)</h3>
+                        <p class="text-base text-slate-500 mb-4">
+                            Menyatukan data terpisah (Tgl, Bln, Thn) menjadi format tanggal yang valid.
+                        </p>
+                        <div class="code-block mb-4">
+                            <span class="text-gray-500 text-sm mb-1 italic">// Syntax:</span>
+                            <span>=DATE(Thn, Bln, Hari)</span>
+                        </div>
+                        <div class="bg-yellow-50 text-yellow-800 p-4 rounded-lg text-sm border border-yellow-200 flex items-start gap-2">
+                            <i class="fas fa-exclamation-triangle mt-1"></i>
+                            <span><strong>Hati-hati:</strong> Urutannya Tahun dulu, baru Bulan, lalu Hari.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODUL 3: VISUALIZATION -->
+        <section>
+            <div class="flex items-center gap-6 mb-10 border-b-2 border-slate-200 pb-6">
+                <div class="bg-purple-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-3xl font-bold shadow-lg flex-shrink-0">3</div>
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-2">Visualisasi Data (Micro-Charts)</h2>
+                    <p class="text-slate-500 text-lg">Menggunakan rumus Repetisi (REPT) untuk membuat grafik sederhana dalam sel.</p>
+                </div>
+            </div>
+
+            <div class="card p-10 border-l-8 border-purple-500">
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-purple-700 mb-4">Fungsi REPT</h3>
+                    <div class="code-block mb-6 w-1/2 min-w-48">
+                        <span>=REPT(teks, jumlah)</span>
+                    </div>
+                    <div class="concept-box text-base">
+                        <strong class="block mb-2 text-slate-800 text-lg">Mengapa pakai ini?</strong>
+                        Membuat visualisasi kemajuan atau rating **tanpa** menggunakan Insert Chart yang berat.
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Case 1 -->
+                    <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <h4 class="text-xl font-bold text-slate-800 mb-2">1. Star Rating System</h4>
+                        <p class="text-sm text-slate-500 mb-4 uppercase tracking-wide font-bold">Visualisasi Review</p>
+                        <div class="bg-white p-3 border rounded mb-3 font-mono text-sm text-slate-500">
+                            =REPT("★", A2) & REPT("☆", 5-A2)
+                        </div>
+                        <div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-200">
+                            <span class="text-sm font-bold text-slate-500">Nilai: 4</span>
+                            <span class="text-3xl text-yellow-400 tracking-widest drop-shadow-sm">★★★★☆</span>
+                        </div>
+                    </div>
+
+                    <!-- Case 2 -->
+                    <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <h4 class="text-xl font-bold text-slate-800 mb-2">2. In-Cell Bar Chart (Progress Bar)</h4>
+                        <p class="text-sm text-slate-500 mb-4 uppercase tracking-wide font-bold">Visualisasi Stok/Progress</p>
+                        <div class="bg-white p-3 border rounded mb-3 font-mono text-sm text-slate-500">
+                            =REPT("|", A2/10)
+                        </div>
+                        <div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-200">
+                            <span class="text-sm font-bold text-slate-500">Stok: 80</span>
+                            <span class="text-2xl text-purple-600 font-extrabold font-sans tracking-tighter">||||||||</span>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-2 text-right">*Tip: Ubah font menjadi 'Stencil' atau 'Playbill' agar garisnya rapat.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODUL 4: SUBSTITUTE & JOIN -->
+        <section>
+            <div class="flex items-center gap-6 mb-10 border-b-2 border-slate-200 pb-6">
+                <div class="bg-pink-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-3xl font-bold shadow-lg flex-shrink-0">4</div>
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-2">Substitusi & Penggabungan</h2>
+                    <p class="text-slate-500 text-lg">Membersihkan data dengan mengganti karakter dan menggabungkan sel.</p>
+                </div>
+            </div>
+
+            <!-- BLOK 1: SUBSTITUTE -->
+            <div class="card p-8 border-t-8 border-pink-500 mb-10">
+                <h3 class="text-2xl font-bold text-pink-600 mb-4">SUBSTITUTE <span class="text-base font-normal text-slate-400 ml-2">(Pembersihan)</span></h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                    <div>
+                        <p class="text-base text-slate-600 mb-4 leading-relaxed">
+                            Mengganti teks spesifik menjadi teks lain. Berbeda dengan REPLACE, SUBSTITUTE mengganti berdasarkan **isi teks** yang dicari.
+                        </p>
+                        <div class="code-block">
+                            <span class="text-gray-400 text-sm italic mb-1">// Syntax:</span>
+                            <span>=SUBSTITUTE(teks, "teks_lama", "teks_baru")</span>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                        <strong class="text-xs uppercase text-slate-400 tracking-wider font-bold block mb-3">Studi Kasus: Standardisasi No HP</strong>
+                        <div class="flex flex-col items-start gap-2 mb-4">
+                            <div class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded bg-red-100 text-red-600 flex items-center justify-center text-xs font-bold">IN</span>
+                                <span class="font-mono text-slate-600">0812-3456-7890</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded bg-green-100 text-green-600 flex items-center justify-center text-xs font-bold">OUT</span>
+                                <span class="font-mono font-bold text-green-700">081234567890</span>
+                            </div>
+                        </div>
+                        <div class="code-block text-sm mb-0 py-3">
+                            <span>=SUBSTITUTE(A2, "-", "")</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOK 2: EVOLUSI PENGGABUNGAN -->
+            <div class="mb-8 card p-8 border-t-8 border-indigo-500">
+                <h3 class="text-2xl font-bold text-indigo-700 mb-6 flex items-center gap-2">
+                    <i class="fas fa-history text-slate-400"></i> Evolusi Rumus Penggabungan (Joining Text)
+                </h3>
+                
+                <div class="space-y-6">
+                    
+                    <!-- 1. AMPERSAND -->
+                    <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                        <h4 class="text-xl font-bold text-slate-700 mb-3">1. Ampersand (&)</h4>
+                        <p class="text-base text-slate-600 mb-3">
+                            Metode paling universal. Harus menambahkan pemisah secara manual (misal: `" "`).
+                        </p>
+                        <div class="code-block text-sm">
+                            <span>=A2 & " " & B2</span>
+                        </div>
+                    </div>
+
+                    <!-- 2. CONCATENATE (LEGACY) -->
+                    <div class="p-4 bg-white border border-orange-300 rounded-xl">
+                        <h4 class="text-xl font-bold text-slate-700 mb-3">2. CONCATENATE <span class="bg-orange-100 text-orange-600 text-xs px-2 py-1 rounded font-bold ml-3">JADUL</span></h4>
+                        <p class="text-base text-slate-600 mb-3">
+                            Rumus lama yang kini jarang dipakai. Fungsinya sama persis dengan Ampersand (&).
+                        </p>
+                        <div class="code-block text-sm">
+                            <span>=CONCATENATE(A2, " ", B2)</span>
+                        </div>
+                        <div class="mt-4 text-xs text-red-700 bg-red-50 p-2 rounded border border-red-100">
+                            <strong>Kelemahan Mayor:</strong> Tidak bisa memproses **range** (A1:A10). Harus diisi satu per satu.
+                        </div>
+                    </div>
+
+                    <!-- 3. CONCAT (MODERN) -->
+                    <div class="p-4 bg-white border border-blue-500 rounded-xl">
+                        <h4 class="text-xl font-bold text-blue-700 mb-3">3. CONCAT <span class="bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded font-bold ml-3">EXCEL 2019+</span></h4>
+                        <p class="text-base text-slate-600 mb-3">
+                            Versi modern yang **bisa membaca range** (A1:A10).
+                        </p>
+                        <div class="code-block text-sm">
+                            <span>=CONCAT(A1:A10)</span>
+                        </div>
+                        <div class="mt-4 text-xs text-blue-700 bg-blue-50 p-2 rounded border border-blue-100">
+                            **Perbedaan Utama:** Meskipun bisa membaca range, **CONCAT TIDAK** bisa memberi pemisah otomatis. Hasilnya akan menempel semua.
+                        </div>
+                    </div>
+
+                    <!-- 4. TEXTJOIN (BEST) -->
+                    <div class="p-4 bg-indigo-50 border-2 border-indigo-300 rounded-xl relative">
+                        <h4 class="text-xl font-bold text-indigo-700 mb-3">4. TEXTJOIN <span class="bg-indigo-600 text-white text-xs px-2 py-1 rounded font-bold ml-3">WINNER</span></h4>
+                        <p class="text-base text-slate-600 mb-3">
+                            Rumus paling cerdas dan efisien untuk menggabungkan banyak data sekaligus.
+                        </p>
+                        <div class="code-block text-sm">
+                            <span class="text-gray-400 italic text-xs mb-1">// Syntax: (Pemisah, AbaikanKosong, Range)</span>
+                            <span>=TEXTJOIN(", ", TRUE, A1:A10)</span>
+                        </div>
+                        <ul class="mt-4 text-sm text-indigo-800 list-disc ml-4 space-y-1 font-medium">
+                            <li>**Pemisah Otomatis:** Otomatis menambahkan koma atau spasi di antara setiap sel.</li>
+                            <li>**TRUE (Ignore Empty):** Mengabaikan sel yang kosong agar tidak ada koma atau spasi berlebihan.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 text-center text-base border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-6">
+            <p class="mb-3 font-bold text-slate-200 text-xl">Excel Professional Training Material</p>
+            <p class="italic opacity-70">"Tools are only as good as the logic behind them."</p>
+        </div>
+    </footer>
+
+</body>
+</html>
