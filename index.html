@@ -29,7 +29,7 @@
             border-radius: 16px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
-            width: 100%; /* Dipaksa full width */
+            width: 100%;
         }
         .card:hover {
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
@@ -219,49 +219,9 @@
 
             </div>
 
-            <!-- EXCEL 365 FEATURES -->
-            <div class="mt-10 card p-8 bg-gradient-to-r from-slate-800 to-slate-900 text-white border-none shadow-2xl">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="bg-green-500 text-white text-sm font-bold px-3 py-1 rounded shadow uppercase tracking-wider">Excel 365 / 2021+</div>
-                    <h3 class="font-bold text-2xl text-green-300">Fitur Modern (Game Changers)</h3>
-                </div>
-                <div class="space-y-8">
-                    <div class="bg-white/5 p-6 rounded-xl border border-white/10">
-                        <h4 class="font-mono text-green-400 font-bold text-xl mb-2">TEXTBEFORE & TEXTAFTER</h4>
-                        <p class="text-base text-slate-300 mb-4">
-                            Pengganti kerumitan LEFT+FIND. Cukup tentukan pemisah (delimiter).
-                        </p>
-                        <div class="bg-black/30 p-4 rounded border border-white/5 grid md:grid-cols-2 gap-4">
-                            <div>
-                                <p class="text-xs text-slate-400 mb-2 font-mono uppercase">Ambil Username:</p>
-                                <code class="font-mono text-lg text-green-300 block mb-2">=TEXTBEFORE(A2, "@")</code>
-                                <p class="text-sm text-slate-400 italic">Data: budi.santoso@gmail.com</p>
-                            </div>
-                            <div>
-                                <p class="text-xs text-slate-400 mb-2 font-mono uppercase">Ambil Domain:</p>
-                                <code class="font-mono text-lg text-green-300 block mb-2">=TEXTAFTER(A2, "@")</code>
-                                <p class="text-sm text-slate-400 italic">Hasil: gmail.com</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white/5 p-6 rounded-xl border border-white/10">
-                        <h4 class="font-mono text-green-400 font-bold text-xl mb-2">TEXTSPLIT</h4>
-                        <p class="text-base text-slate-300 mb-4">
-                            Memecah satu sel (misal: berisi alamat atau tag) menjadi banyak sel berbeda secara otomatis (Spill/Tumpah).
-                        </p>
-                        <div class="bg-black/30 p-4 rounded border border-white/5">
-                            <p class="text-xs text-slate-400 mb-2 font-mono uppercase">Data: Jakarta, Bandung, Surabaya</p>
-                            <code class="font-mono text-lg text-green-300 block mb-2">=TEXTSPLIT(A2, ", ")</code>
-                            <p class="text-sm text-slate-400 italic border-t border-white/10 pt-2 mt-2">-> Hasil tumpah ke 3 sel ke samping.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- MODUL 2: DATES -->
         <section>
-            <div class="flex items-center gap-6 mb-10 border-b-2 border-slate-200 pb-6">
+            <div class="flex items-center gap-6 mb-10 mt-10 border-b-2 border-slate-200 pb-6">
                 <div class="bg-emerald-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-3xl font-bold shadow-lg flex-shrink-0">2</div>
                 <div>
                     <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-2">Logika Waktu & Tanggal</h2>
@@ -333,7 +293,7 @@
 
         <!-- MODUL 3: VISUALIZATION -->
         <section>
-            <div class="flex items-center gap-6 mb-10 border-b-2 border-slate-200 pb-6">
+            <div class="flex items-center gap-6 mb-10 mt-10 border-b-2 border-slate-200 pb-6">
                 <div class="bg-purple-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-3xl font-bold shadow-lg flex-shrink-0">3</div>
                 <div>
                     <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-2">Visualisasi Data (Micro-Charts)</h2>
@@ -353,32 +313,71 @@
                     </div>
                 </div>
 
-                <div class="grid lg:grid-cols-2 gap-8">
-                    <!-- Case 1 -->
-                    <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 shadow-sm">
-                        <h4 class="text-xl font-bold text-slate-800 mb-2">1. Star Rating System</h4>
-                        <p class="text-sm text-slate-500 mb-4 uppercase tracking-wide font-bold">Visualisasi Review</p>
-                        <div class="bg-white p-3 border rounded mb-3 font-mono text-sm text-slate-500">
-                            =REPT("★", A2) & REPT("☆", 5-A2)
+       <!-- MODUL 3: VISUALISASI REPT -->
+        <section id="modul3" class="mb-12 scroll-mt-24">
+            <div class="section-card border-t-purple-500 p-6 md:p-8">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-900">Modul 3: Visualisasi REPT</h2>
+                        <p class="text-slate-500">Micro-charts di dalam sel (In-Cell Chart).</p>
+                    </div>
+                    <span class="bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full mt-2 md:mt-0">Kreativitas</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Star Rating -->
+                    <div class="bg-slate-50 p-6 rounded-xl text-center">
+                        <h3 class="font-bold text-slate-700 mb-4">1. Star Rating System</h3>
+                        <input type="range" id="rept-slider" min="1" max="5" value="3" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-purple-600 mb-4">
+                        <div class="text-5xl text-amber-400 mb-4 font-sans" id="rept-stars">★★★☆☆</div>
+                        <div class="bg-white p-3 rounded border text-left">
+                            <div class="text-xs text-slate-400">Rumus:</div>
+                            <code class="text-sm text-purple-600">=REPT("★", <span id="val-rept">3</span>) & REPT("☆", <span id="val-rept-rem">2</span>)</code>
                         </div>
-                        <div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-200">
-                            <span class="text-sm font-bold text-slate-500">Nilai: 4</span>
-                            <span class="text-3xl text-yellow-400 tracking-widest drop-shadow-sm">★★★★☆</span>
+                        
+                        <!-- Pro Tips Accordion inside Star Rating -->
+                        <div class="mt-4 text-left">
+                            <button class="w-full flex justify-between items-center text-xs font-bold text-purple-600 bg-purple-50 p-2 rounded hover:bg-purple-100 transition" onclick="toggleAccordion('tips-star')">
+                                <span>💡 Pro Tips: Cara Masukin Bintang?</span>
+                                <span>▼</span>
+                            </button>
+                            <div id="tips-star" class="hidden mt-2 text-xs text-slate-600 bg-white border border-purple-100 p-3 rounded shadow-sm">
+                                <p class="mb-2 font-bold text-slate-800">Cara 1: Shortcut (Cepat)</p>
+                                <p class="mb-3">Tekan <code class="bg-slate-100 px-1 rounded">Windows</code> + <code class="bg-slate-100 px-1 rounded">.</code> (Titik) untuk buka panel Emoji.</p>
+                                
+                                <p class="mb-2 font-bold text-slate-800">Cara 2: Rumus Kode (CHAR vs UNICHAR)</p>
+                                <div class="space-y-2">
+                                    <div class="bg-red-50 p-2 rounded border border-red-100">
+                                        <div class="font-bold text-red-600 mb-1">CHAR(angka) - JADUL</div>
+                                        <p>Hanya support 255 karakter (ANSI). Untuk buat bintang, harus ganti font sel jadi <em>Wingdings 2</em>. <strong>Risiko:</strong> Jika file dibuka di HP/Web, font bisa rusak.</p>
+                                    </div>
+                                    <div class="bg-emerald-50 p-2 rounded border border-emerald-100">
+                                        <div class="font-bold text-emerald-600 mb-1">UNICHAR(angka) - MODERN</div>
+                                        <p class="mb-1">Support ribuan simbol (Unicode). Simbol bersifat universal (teks biasa), aman di semua device.</p>
+                                        <ul class="list-disc list-inside font-mono text-[10px] mt-1">
+                                            <li>★ = UNICHAR(9733)</li>
+                                            <li>☆ = UNICHAR(9734)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Case 2 -->
-                    <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 shadow-sm">
-                        <h4 class="text-xl font-bold text-slate-800 mb-2">2. In-Cell Bar Chart (Progress Bar)</h4>
-                        <p class="text-sm text-slate-500 mb-4 uppercase tracking-wide font-bold">Visualisasi Stok/Progress</p>
-                        <div class="bg-white p-3 border rounded mb-3 font-mono text-sm text-slate-500">
-                            =REPT("|", A2/10)
+                    <!-- Bar Chart -->
+                    <div class="bg-slate-50 p-6 rounded-xl">
+                        <h3 class="font-bold text-slate-700 mb-4">2. In-Cell Bar Chart</h3>
+                        <div class="flex items-center gap-4 mb-4">
+                            <label class="text-sm font-bold">Penjualan:</label>
+                            <input type="number" id="input-bar" value="80" class="input-field w-20 p-1 border rounded">
                         </div>
-                        <div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-200">
-                            <span class="text-sm font-bold text-slate-500">Stok: 80</span>
-                            <span class="text-2xl text-purple-600 font-extrabold font-sans tracking-tighter">||||||||</span>
+                        <div class="bg-white h-12 flex items-center px-2 rounded border mb-4 overflow-hidden">
+                            <span id="rept-bar" class="text-blue-600 font-black tracking-tighter text-xl">||||||||</span>
                         </div>
-                        <p class="text-xs text-slate-400 mt-2 text-right">*Tip: Ubah font menjadi 'Stencil' atau 'Playbill' agar garisnya rapat.</p>
+                        <div class="bg-white p-3 rounded border">
+                            <div class="text-xs text-slate-400">Rumus (Font Stencil/Playbill):</div>
+                            <code class="text-sm text-blue-600">=REPT("|", A2/10)</code>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -386,7 +385,7 @@
 
         <!-- MODUL 4: SUBSTITUTE & JOIN -->
         <section>
-            <div class="flex items-center gap-6 mb-10 border-b-2 border-slate-200 pb-6">
+            <div class="flex items-center gap-6 mb-10 mt-10 border-b-2 border-slate-200 pb-6">
                 <div class="bg-pink-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-3xl font-bold shadow-lg flex-shrink-0">4</div>
                 <div>
                     <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-2">Substitusi & Penggabungan</h2>
@@ -501,6 +500,52 @@
             <p class="italic opacity-70">"Tools are only as good as the logic behind them."</p>
         </div>
     </footer>
+
+    <!-- Script untuk Interaktivitas -->
+    <script>
+        // 1. Logic untuk Accordion (Pro Tips)
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+            } else {
+                content.classList.add('hidden');
+            }
+        }
+
+        // 2. Logic untuk Slider Bintang
+        const starSlider = document.getElementById('rept-slider');
+        const starsDisplay = document.getElementById('rept-stars');
+        const valRept = document.getElementById('val-rept');
+        const valReptRem = document.getElementById('val-rept-rem');
+
+        if (starSlider) {
+            starSlider.addEventListener('input', function() {
+                const val = parseInt(this.value);
+                const filled = "★".repeat(val);
+                const empty = "☆".repeat(5 - val);
+                
+                starsDisplay.textContent = filled + empty;
+                valRept.textContent = val;
+                valReptRem.textContent = 5 - val;
+            });
+        }
+
+        // 3. Logic untuk Bar Chart Input
+        const barInput = document.getElementById('input-bar');
+        const barDisplay = document.getElementById('rept-bar');
+
+        if (barInput) {
+            barInput.addEventListener('input', function() {
+                let val = parseInt(this.value);
+                if (isNaN(val)) val = 0;
+                
+                // Logic: value / 10
+                const count = Math.floor(val / 10);
+                barDisplay.textContent = "|".repeat(count);
+            });
+        }
+    </script>
 
 </body>
 </html>
